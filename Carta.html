@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día del Médico</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card {
+            background-color: white;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2a9d8f;
+        }
+
+        .message {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 20px;
+            font-style: italic;
+            color: #2a9d8f;
+        }
+
+        .share-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #2a9d8f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #21867a;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Feliz Día del Médico</h1>
+        <p class="message">
+            En este día tan especial, quiero expresar mi más profundo agradecimiento y admiración hacia ti, 
+            querido doctor. No solo por tu increíble dedicación, sino también por la pasión con la que brindas tu 
+            conocimiento y compasión a cada uno de tus pacientes.
+        </p>
+        <p class="message">
+            Tu trabajo incansable, especialmente en los momentos más difíciles, es un verdadero testimonio del 
+            impacto positivo que tienes en la vida de los demás. Gracias por ser una luz de esperanza y por hacer 
+            de este mundo un lugar mejor con tu esfuerzo diario.
+        </p>
+        <p class="signature">
+            Con aprecio,<br>
+            [Tu Nombre]
+        </p>
+        <div class="share-button">
+            <button onclick="sharePage()">Compartir</button>
+        </div>
+    </div>
+
+    <script>
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Feliz Día del Médico',
+                    text: 'Mira esta dedicatoria especial para el mejor médico en su día.',
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Página compartida con éxito');
+                }).catch((error) => {
+                    console.error('Error al compartir:', error);
+                });
+            } else {
+                alert('La función de compartir no está disponible en este dispositivo.');
+            }
+        }
+    </script>
+</body>
+</html>
