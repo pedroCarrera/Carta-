@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 100%;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #0078d7;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .doctor-image {
+            width: 80%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin: 20px auto;
+            display: block;
+        }
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+        .special {
+            font-weight: bold;
+            color: #0078d7;
+            font-size: 1.4rem;
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        .button {
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #005fa3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Feliz Cumpleaños!</h1>
+        
+        <img src="/api/placeholder/400/320" alt="Doctor" class="doctor-image">
+        
+        <div class="message">
+            <p>En este día tan especial, queremos felicitarte y desearte un</p>
+            <p class="special">¡Maravilloso Cumpleaños!</p>
+            <p>Que este nuevo año de vida esté lleno de salud, éxito y momentos inolvidables.</p>
+            <p>Gracias por tu dedicación y compromiso con el bienestar de todos.</p>
+            <p>Con cariño y admiración,</p>
+            <p>Tus colegas y amigos</p>
+        </div>
+        
+        <button class="button" id="celebrar">¡Celebremos!</button>
+    </div>
+    
+    <script>
+        // Crear confeti
+        function createConfetti() {
+            const colors = ['#0078d7', '#00bcd4', '#76ff03', '#ff9800', '#e91e63'];
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = (Math.random() * 5) + 's';
+                document.body.appendChild(confetti);
+            }
+        }
+        
+        // Activar confeti al cargar la página
+        window.addEventListener('load', createConfetti);
+        
+        // Más confeti al hacer clic en el botón
+        document.getElementById('celebrar').addEventListener('click', function() {
+            createConfetti();
+            // Reproducir sonido de celebración
+            const audio = new Audio('https://cdnjs.cloudflare.com/ajax/libs/soundjs/1.0.1/soundjs.min.js');
+            audio.play();
+            
+            // Mensaje adicional
+            alert('¡Que tengas un día maravilloso! Te deseamos lo mejor en este cumpleaños.');
+        });
+    </script>
+</body>
+</html>
